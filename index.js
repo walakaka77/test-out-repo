@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const uploadRoutes = require('./routes/uploadRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ app.use('/public', express.static(path.join(process.cwd(), 'public')));
 
 // Mount feature routers
 app.use('/upload', uploadRoutes);
+app.use('/product', productRoutes);
 
 // Health & home
 app.get('/health', (_req, res) => res.send('ok'));
